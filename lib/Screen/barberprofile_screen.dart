@@ -72,7 +72,21 @@ class BarberProfileState extends State<BarberProfile>
                     size: 35,
                     color: Colors.purple,
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      lastDate: DateTime.now().add(Duration(days: 100)),
+                      firstDate: DateTime.now().subtract(Duration(days: 100)),
+                      builder: (BuildContext context, Widget child) {
+                        return MediaQuery(
+                          data: MediaQuery.of(context)
+                              .copyWith(alwaysUse24HourFormat: false),
+                          child: child,
+                        );
+                      },
+                    );
+                  },
                 ),
                 IconButton(
                   icon: Icon(
@@ -113,7 +127,10 @@ class BarberProfileState extends State<BarberProfile>
             Expanded(
               child: TabBarView(
                 children: [
-                  Text('people'),
+                  Text(
+                    'Starts from: Rs.200',
+                    style: TextStyle(fontSize: 20),
+                  ),
                   Container(
                       height: 200,
                       child: GridView.count(
@@ -123,23 +140,80 @@ class BarberProfileState extends State<BarberProfile>
                             image: 'assets/images/s1.jpg',
                           ),
                           ImageCut(
-                            image: 'assets/images/s2.jpg',
+                            image: 'assets/images/p2.jpg',
                           ),
                           ImageCut(
-                            image: 'assets/images/s3.jpg',
+                            image: 'assets/images/p3.jpg',
                           ),
                           ImageCut(
-                            image: 'assets/images/s4.jpg',
+                            image: 'assets/images/p4.jpg',
                           ),
                           ImageCut(
                             image: 'assets/images/s5.jpg',
                           ),
                           ImageCut(
-                            image: 'assets/images/s6.jpg',
+                            image: 'assets/images/s2.jpg',
                           ),
                         ],
                       )),
-                  Text("Review"),
+                  Material(
+                    borderRadius: BorderRadius.circular(10),
+                    elevation: 10,
+                    child: ListTile(
+                      onTap: () {},
+                      title: Row(
+                        children: [
+                          Text(
+                            'Dinesh Bhai',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
+                          Text('02/01/2021'),
+                        ],
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Really great barber',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Colors.amberAccent,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amberAccent,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amberAccent,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      leading: Container(
+                        height: 120,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(400),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage('assets/images/p5.jpg'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
                 controller: _tabController,
               ),
