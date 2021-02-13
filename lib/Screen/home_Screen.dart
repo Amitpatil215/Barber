@@ -157,15 +157,12 @@ class HomeScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        height: 140,
-                        width: 140,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/sallon1.jfif')),
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.red,
-                        ),
+                      RecentBooking(
+                        image: 'assets/images/sal1.jpg',
+                      ),
+                      SizedBox(width: 30),
+                      RecentBooking(
+                        image: 'assets/images/sal3.jpg',
                       )
                     ],
                   ),
@@ -203,6 +200,27 @@ class HomeScreen extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class RecentBooking extends StatelessWidget {
+  final String image;
+  const RecentBooking({
+    Key key,
+    this.image,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 140,
+      width: 160,
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.red,
       ),
     );
   }
