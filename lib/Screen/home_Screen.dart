@@ -1,3 +1,4 @@
+import 'package:believable/Screen/nearMe.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -120,9 +121,15 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(
                         width: 8,
                       ),
-                      GridElement(
-                        image: 'assets/images/locationimage.png',
-                        title: 'Near me',
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => NearMeScreen()));
+                        },
+                        child: GridElement(
+                          image: 'assets/images/locationimage.png',
+                          title: 'Near me',
+                        ),
                       ),
                       SizedBox(
                         width: 10,
