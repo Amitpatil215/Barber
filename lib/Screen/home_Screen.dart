@@ -134,16 +134,28 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-                      GridElement(
-                        image: 'assets/images/topbarber.png',
-                        title: 'Top Barbers',
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => NearMeScreen()));
+                        },
+                        child: GridElement(
+                          image: 'assets/images/topbarber.png',
+                          title: 'Top Barbers',
+                        ),
                       ),
                       SizedBox(
                         width: 10,
                       ),
-                      GridElement(
-                        image: 'assets/images/heartimage.png',
-                        title: 'Favorites',
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => NearMeScreen()));
+                        },
+                        child: GridElement(
+                          image: 'assets/images/heartimage.png',
+                          title: 'Favorites',
+                        ),
                       ),
                     ],
                   ),

@@ -1,3 +1,4 @@
+import 'package:believable/Screen/barberprofile_screen.dart';
 import 'package:flutter/material.dart';
 
 class NearMeScreen extends StatefulWidget {
@@ -162,6 +163,10 @@ class ShopsTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               elevation: 10,
               child: ListTile(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (ctx) => BarberProfile()));
+                },
                 title: Row(
                   children: [
                     Text(
